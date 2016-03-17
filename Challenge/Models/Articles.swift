@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 
-public class Article : Mappable
+class Article : Mappable
 {
     var title: String?
     var website: String?
@@ -20,11 +20,11 @@ public class Article : Mappable
     var date: NSDate?
 
 
-    required public init?(_ map: Map) {
+    required init?(_ map: Map) {
     }
 
 
-    public func mapping(map: Map) {
+    func mapping(map: Map) {
         title       <- map["title"]
         website     <- map["website"]
         authors     <- map["authors"]

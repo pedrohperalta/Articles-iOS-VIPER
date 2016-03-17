@@ -68,8 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.backgroundColor = UIColor.whiteColor();
-        self.window!.rootViewController = ViewController()
+        self.window!.rootViewController = ArticlesViewController()
         self.window!.makeKeyAndVisible()
     }
 }
-
