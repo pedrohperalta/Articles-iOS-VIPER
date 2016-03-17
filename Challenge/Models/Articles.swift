@@ -12,12 +12,12 @@ import ObjectMapper
 
 class Article : Mappable
 {
+    var date: String?
     var title: String?
     var website: String?
     var authors: String?
     var content: String?
     var imageUrl: String?
-    var date: NSDate?
 
 
     required init?(_ map: Map) {
@@ -30,6 +30,6 @@ class Article : Mappable
         authors     <- map["authors"]
         content     <- map["content"]
         imageUrl    <- map["image"]
-        date        <- (map["date"], DateTransform())
+        date        <- map["date"]
     }
 }

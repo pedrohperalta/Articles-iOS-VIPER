@@ -6,7 +6,7 @@
 import Foundation
 
 
-protocol ArticlesProvider
+protocol ArticlesProvider : class
 {
     func downloadArticles()
 }

@@ -9,6 +9,7 @@ import UIKit
 class ArticlesViewController : UIViewController
 {
     var articlesView: ArticlesView!
+    var articlesPresenter: ArticlesPresenter!
 
 
     // MARK: Life Cycle
@@ -19,5 +20,7 @@ class ArticlesViewController : UIViewController
         super.viewDidLoad()
         self.articlesView = ArticlesView(frame: self.view.frame)
         self.view.addSubview(self.articlesView)
+
+        self.articlesPresenter.requestArticles()
     }
 }

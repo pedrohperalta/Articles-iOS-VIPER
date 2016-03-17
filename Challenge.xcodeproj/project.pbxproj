@@ -12,6 +12,7 @@
 		A92131F01EC79D7B2951C9E3 /* ArticlesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92132D1B4FCE81B28550539 /* ArticlesProvider.swift */; };
 		A92139D6463A5910955F4BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213B75C7AE91287999AB91 /* AppDelegate.swift */; };
 		A9213AC8FB16B4DB63A279A4 /* ArticlesOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213C0F9BF56155B70EC9D2 /* ArticlesOutput.swift */; };
+		A9213B5EAC6CBBED229A2384 /* ArticlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921342926A9C9EC45187E9E /* ArticlesPresenter.swift */; };
 		A9213B680D0B43E2E15395B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A921372E69907F1FEB34F258 /* Assets.xcassets */; };
 		A9213C47434238631D936031 /* ArticlesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213EAC95A8C7627B31A4D8 /* ArticlesInteractor.swift */; };
 		B2B287D41C9A469500CF3411 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B287D31C9A469500CF3411 /* Articles.swift */; };
@@ -23,6 +24,7 @@
 		2060A2082FDE3F5736CBDFEF /* Pods-Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge/Pods-Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		93FF74D53A863E425A3EE2A0 /* Pods-Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge/Pods-Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		A92132D1B4FCE81B28550539 /* ArticlesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesProvider.swift; sourceTree = "<group>"; };
+		A921342926A9C9EC45187E9E /* ArticlesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesPresenter.swift; sourceTree = "<group>"; };
 		A9213544A529DA8F033B4B3A /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		A921372E69907F1FEB34F258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9213B75C7AE91287999AB91 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				A92132D1B4FCE81B28550539 /* ArticlesProvider.swift */,
 				A9213EAC95A8C7627B31A4D8 /* ArticlesInteractor.swift */,
 				A9213C0F9BF56155B70EC9D2 /* ArticlesOutput.swift */,
+				A921342926A9C9EC45187E9E /* ArticlesPresenter.swift */,
 			);
 			path = Articles;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				A92131F01EC79D7B2951C9E3 /* ArticlesProvider.swift in Sources */,
 				A9213C47434238631D936031 /* ArticlesInteractor.swift in Sources */,
 				A9213AC8FB16B4DB63A279A4 /* ArticlesOutput.swift in Sources */,
+				A9213B5EAC6CBBED229A2384 /* ArticlesPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
