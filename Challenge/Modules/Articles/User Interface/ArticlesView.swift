@@ -8,6 +8,9 @@ import UIKit
 
 class ArticlesView : UIView
 {
+    var articlesTableView: UITableView!
+
+
     // MARK: Life Cycle
 
 
