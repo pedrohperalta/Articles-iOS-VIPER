@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
         articlesViewController.articlesPresenter = articlesPresenter
         articlesPresenter.provider = articlesInteractor
+        articlesPresenter.view = articlesViewController
         articlesInteractor.output = articlesPresenter
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
