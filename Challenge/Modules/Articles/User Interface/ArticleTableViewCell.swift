@@ -80,9 +80,8 @@ class ArticleTableViewCell : UITableViewCell
     {
         self.articleImageView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.contentView.snp_top)
-            make.centerX.equalTo(self.contentView.snp_centerX)
-            make.width.equalTo(self.contentView.snp_width)
-            make.height.equalTo(160)
+            make.left.equalTo(self.contentView.snp_left)
+            make.right.equalTo(self.contentView.snp_right)
         }
 
         self.titleLabel.snp_makeConstraints { (make) -> Void in

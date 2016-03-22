@@ -20,6 +20,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.setupArticlesView()
         self.articlesPresenter.requestArticles()
     }
 
@@ -35,7 +36,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     func showArticlesList(articles: [Article])
     {
         self.articles = articles
-        self.setupArticlesView()
+        self.articlesView.articlesTableView.reloadData()
     }
     
     
@@ -47,7 +48,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
         self.articlesView = ArticlesView(frame: self.view.frame)
         self.articlesView.articlesTableView.delegate = self
         self.articlesView.articlesTableView.dataSource = self
-
+        
         self.view.addSubview(self.articlesView)
     }
 
@@ -57,7 +58,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return self.articles.count
+        return self.articles != nil ? self.articles.count : 0
     }
 
 
@@ -86,15 +87,15 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     {
         return 16
     }
-    
-    
+
+
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
-        let spaceView = UIView()
-        spaceView.backgroundColor = UIColor.clearColor()
-        return spaceView
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.clearColor()
+        return footerView
     }
-    
+
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
