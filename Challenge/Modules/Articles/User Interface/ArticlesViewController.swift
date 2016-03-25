@@ -8,6 +8,24 @@ import UIKit
 
 class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableViewDataSource, UITableViewDelegate
 {
+    // MARK: Constants
+    
+    
+    let navigationBarTitle = "NAVIGATION_BAR_TITLE"
+    let buttonSortTitle = "BUTTON_SORT_TITLE"
+    let alertSortByTitle = "ALERT_SORT_BY_TITLE"
+    let dateString = "ALERT_DATE_OPTION"
+    let titleString = "ALERT_TITLE_OPTION"
+    let authorString = "ALERT_AUTHOR_OPTION"
+    let webSiteString = "ALERT_WEBSITE_OPTION"
+    let cancelString = "ALERT_CANCEL_OPTION"
+    
+    let sortAction = "showSortOptions:"
+    
+    
+    // MARK: Instance Variables
+    
+    
     var articlesView: ArticlesView!
     var articlesPresenter: ArticlesPresenter!
 
@@ -20,29 +38,15 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.setupNavigationBar()
         self.setupArticlesView()
         self.articlesPresenter.requestArticles()
-    }
-
-
-    // MARK: ArticlesViewInterface
-
-
-    func showNoContentScreen()
-    {
-    }
-
-
-    func showArticlesList(articles: [Article])
-    {
-        self.articles = articles
-        self.articlesView.articlesTableView.reloadData()
     }
     
     
     // MARK: Private
-
-
+    
+    
     func setupArticlesView()
     {
         self.articlesView = ArticlesView(frame: self.view.frame)
@@ -50,6 +54,44 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
         self.articlesView.articlesTableView.dataSource = self
         
         self.view.addSubview(self.articlesView)
+    }
+    
+    
+    func setupNavigationBar()
+    {
+        let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized, style: .Plain, target:self, action: Selector(self.sortAction))
+        
+        self.navigationItem.rightBarButtonItem = sortButton
+        self.navigationItem.title = self.navigationBarTitle.localized
+    }
+    
+    
+    func showSortOptions(sender: UIBarButtonItem)
+    {
+        let alert = UIAlertController(title: self.alertSortByTitle.localized, message: nil, preferredStyle: .ActionSheet)
+        
+        alert.addAction(UIAlertAction(title: self.dateString.localized, style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: self.titleString.localized, style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: self.authorString.localized, style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: self.webSiteString.localized, style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: self.cancelString.localized, style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: ArticlesViewInterface
+    
+    
+    func showNoContentScreen()
+    {
+    }
+    
+    
+    func showArticlesList(articles: [Article])
+    {
+        self.articles = articles
+        self.articlesView.articlesTableView.reloadData()
     }
 
 

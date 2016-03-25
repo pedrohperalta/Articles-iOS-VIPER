@@ -10,8 +10,11 @@ import Kingfisher
 
 class ArticleTableViewCell : UITableViewCell
 {
+    // MARK: Constants
+    
+    
     static let kArticlesCellIdentifier = "articlesCellIdentifier"
-    static let kImagePlaceHolder = "image-placeholder"
+    let kImagePlaceHolder = "image-placeholder"
 
 
     // MARK: Life Cycle
@@ -111,7 +114,7 @@ class ArticleTableViewCell : UITableViewCell
         if (article.imageUrl != nil) {
             self.articleImageView.kf_setImageWithURL(NSURL(string: article.imageUrl!)!, placeholderImage:nil)
         } else {
-            self.articleImageView.image = UIImage(named: ArticleTableViewCell.kImagePlaceHolder)
+            self.articleImageView.image = UIImage(named: self.kImagePlaceHolder)
         }
     }
 }
