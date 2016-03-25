@@ -13,14 +13,8 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     let navigationBarTitle = "NAVIGATION_BAR_TITLE"
     let buttonSortTitle = "BUTTON_SORT_TITLE"
-    let alertSortByTitle = "ALERT_SORT_BY_TITLE"
-    let dateString = "ALERT_DATE_OPTION"
-    let titleString = "ALERT_TITLE_OPTION"
-    let authorString = "ALERT_AUTHOR_OPTION"
-    let webSiteString = "ALERT_WEBSITE_OPTION"
-    let cancelString = "ALERT_CANCEL_OPTION"
     
-    let sortAction = "showSortOptions:"
+    let sortAction = "onSortButtonClicked:"
     
     
     // MARK: Instance Variables
@@ -66,17 +60,9 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     }
     
     
-    func showSortOptions(sender: UIBarButtonItem)
+    func onSortButtonClicked(sender: UIBarButtonItem)
     {
-        let alert = UIAlertController(title: self.alertSortByTitle.localized, message: nil, preferredStyle: .ActionSheet)
-        
-        alert.addAction(UIAlertAction(title: self.dateString.localized, style: .Default, handler: nil))
-        alert.addAction(UIAlertAction(title: self.titleString.localized, style: .Default, handler: nil))
-        alert.addAction(UIAlertAction(title: self.authorString.localized, style: .Default, handler: nil))
-        alert.addAction(UIAlertAction(title: self.webSiteString.localized, style: .Default, handler: nil))
-        alert.addAction(UIAlertAction(title: self.cancelString.localized, style: .Cancel, handler: nil))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.articlesPresenter.sortArticles()
     }
     
     
