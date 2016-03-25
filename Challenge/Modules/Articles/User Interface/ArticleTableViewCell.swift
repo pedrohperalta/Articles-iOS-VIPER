@@ -11,6 +11,7 @@ import Kingfisher
 class ArticleTableViewCell : UITableViewCell
 {
     static let kArticlesCellIdentifier = "articlesCellIdentifier"
+    static let kImagePlaceHolder = "image-placeholder"
 
 
     // MARK: Life Cycle
@@ -35,7 +36,7 @@ class ArticleTableViewCell : UITableViewCell
 
     lazy var articleImageView: UIImageView! = {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.Center
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
 
         return imageView
@@ -108,7 +109,9 @@ class ArticleTableViewCell : UITableViewCell
         self.titleLabel?.text = article.title!
         
         if (article.imageUrl != nil) {
-            self.articleImageView.kf_setImageWithURL(NSURL(string: article.imageUrl!)!, placeholderImage: nil)
+            self.articleImageView.kf_setImageWithURL(NSURL(string: article.imageUrl!)!, placeholderImage:nil)
+        } else {
+            self.articleImageView.image = UIImage(named: ArticleTableViewCell.kImagePlaceHolder)
         }
     }
 }
