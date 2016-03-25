@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import PKHUD
 
 
 class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableViewDataSource, UITableViewDelegate
@@ -32,8 +33,11 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         self.setupNavigationBar()
         self.setupArticlesView()
+        
+        HUD.show(.Progress)
         self.articlesPresenter.requestArticles()
     }
     
@@ -76,6 +80,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     func showArticlesList(articles: [Article])
     {
+        HUD.hide()
         self.articles = articles
         self.articlesView.articlesTableView.reloadData()
     }

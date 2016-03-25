@@ -10,5 +10,6 @@ target 'Challenge' do
   pod 'SnapKit', '~> 0.19.0'
   pod 'UIColor_Hex_Swift', '~> 2.0'
   pod 'Kingfisher', '~> 2.1'
+  pod 'PKHUD'
 
 end

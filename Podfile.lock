@@ -5,6 +5,7 @@ PODS:
     - ObjectMapper (~> 1.0)
   - Kingfisher (2.1.0)
   - ObjectMapper (1.1.5)
+  - PKHUD (3.1.0)
   - SnapKit (0.19.1)
   - UIColor_Hex_Swift (2.0)
 
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 2.1)
   - Kingfisher (~> 2.1)
   - ObjectMapper (~> 1.1)
+  - PKHUD
   - SnapKit (~> 0.19.0)
   - UIColor_Hex_Swift (~> 2.0)
 
@@ -21,6 +23,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 82391c31f23e37bdb2660da174bcf81b202da39d
   Kingfisher: 3ac09acad75a25ab22f6d7cef3de10d61dd4792d
   ObjectMapper: 528b1a6677a6acac7747edd508576983e76a9148
+  PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   UIColor_Hex_Swift: 07130bb5cc010905acc970609255edf4d80f06c8
 
