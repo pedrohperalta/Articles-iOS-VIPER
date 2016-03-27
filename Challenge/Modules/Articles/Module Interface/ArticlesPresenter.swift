@@ -73,4 +73,10 @@ class ArticlesPresenter : ArticlesOutput
             
         }
     }
+
+
+    func presentDetailsScreenForArticle(article: Article)
+    {
+        self.wireframe.presentDetailsInterfaceForArticle(article)
+    }
 }

@@ -15,19 +15,31 @@ class AppDependencies : NSObject
     {
         let rootWireframe = RootWireframe()
 
+        // Articles Module Classes
         let articlesInteractor = ArticlesInteractor()
         let articlesPresenter = ArticlesPresenter()
         let articlesWireframe = ArticlesWireframe()
 
-        articlesInteractor.output = articlesPresenter
 
+        // Details Module Classes
+        let detailsPresenter = DetailsPresenter()
+        let detailsWireframe = DetailsWireframe()
+
+
+        // Articles Module Setup
+        articlesInteractor.output = articlesPresenter
         articlesPresenter.provider = articlesInteractor
         articlesPresenter.wireframe = articlesWireframe
-
         articlesWireframe.rootWireframe = rootWireframe
         articlesWireframe.articlesPresenter = articlesPresenter
+        articlesWireframe.detailsWireframe = detailsWireframe
 
         self.articlesWireframe = articlesWireframe
+
+
+        // Details Module Setup
+        detailsPresenter.wireframe = detailsWireframe
+        detailsWireframe.detailsPresenter = detailsPresenter
     }
 
 
