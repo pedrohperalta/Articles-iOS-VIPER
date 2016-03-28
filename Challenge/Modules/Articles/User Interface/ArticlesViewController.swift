@@ -11,49 +11,40 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
 {
     // MARK: Constants
     
-    
     let navigationBarTitle = "NAVIGATION_BAR_TITLE"
     let buttonSortTitle = "BUTTON_SORT_TITLE"
     
     let sortAction = "onSortButtonClicked:"
     
     
+    // MARK: Outlets
+    
+    @IBOutlet weak var articlesTableView: UITableView!
+    
+    
     // MARK: Instance Variables
     
-    
-    var articlesView: ArticlesView!
     var articlesPresenter: ArticlesPresenter!
-
     var articles: [Article]!
 
 
     // MARK: Life Cycle
 
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        self.articlesTableView.dataSource = self
+        self.articlesTableView.delegate = self
+        
         self.setupNavigationBar()
-        self.setupArticlesView()
+        self.articlesPresenter.requestArticles()
         
         HUD.show(.Progress)
-        self.articlesPresenter.requestArticles()
     }
     
     
     // MARK: Private
-    
-    
-    func setupArticlesView()
-    {
-        self.articlesView = ArticlesView(frame: self.view.frame)
-        self.articlesView.articlesTableView.delegate = self
-        self.articlesView.articlesTableView.dataSource = self
-        
-        self.view.addSubview(self.articlesView)
-    }
-    
     
     func setupNavigationBar()
     {
@@ -72,7 +63,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     // MARK: ArticlesViewInterface
     
-    
     func showNoContentScreen()
     {
     }
@@ -82,53 +72,27 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     {
         HUD.hide()
         self.articles = articles
-        self.articlesView.articlesTableView.reloadData()
-    }
-
-
-    // MARK: UITableView Datasource
-    
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
-        return self.articles != nil ? self.articles.count : 0
+        self.articlesTableView.reloadData()
     }
 
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 1
+        return self.articles != nil ? self.articles.count : 0
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let articleCell = tableView.dequeueReusableCellWithIdentifier(ArticleTableViewCell.kArticlesCellIdentifier,
-                forIndexPath: indexPath) as! ArticleTableViewCell
+        let articleCell = tableView.dequeueReusableCellWithIdentifier(ArticleTableViewCell.kArticlesCellIdentifier) as! ArticleTableViewCell
 
-        articleCell.setupWithArticle(self.articles[indexPath.section])
-        articleCell.contentView.layoutIfNeeded()
+        articleCell.setupWithArticle(self.articles[indexPath.row])
 
         return articleCell
     }
 
 
     // MARK: UITableView Delegate
-    
-    
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
-    {
-        return 16
-    }
-
-
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
-    {
-        let footerView = UIView()
-        footerView.backgroundColor = UIColor.clearColor()
-        return footerView
-    }
-
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {

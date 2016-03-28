@@ -10,7 +10,6 @@ class ArticlesWireframe : NSObject
 {
     // MARK: Constants
     
-    
     let alertSortByTitle = "ALERT_SORT_BY_TITLE"
     let dateString = "ALERT_DATE_OPTION"
     let titleString = "ALERT_TITLE_OPTION"
@@ -18,9 +17,11 @@ class ArticlesWireframe : NSObject
     let webSiteString = "ALERT_WEBSITE_OPTION"
     let cancelString = "ALERT_CANCEL_OPTION"
     
+    let storyboardName = "ArticlesStoryboard"
+    let articlesViewControllerIdentifier = "ArticlesViewController"
+    
     
     // MARK: Instance Variables
-    
     
     var articlesPresenter: ArticlesPresenter!
     var articlesViewController: ArticlesViewController!
@@ -30,14 +31,13 @@ class ArticlesWireframe : NSObject
     
     // MARK: Public
     
-    
     func presentArticlesInterfaceFromWindow(window: UIWindow)
     {
-        self.articlesViewController = ArticlesViewController()
+        self.articlesViewController = self.articlesViewControllerFromStoryboard()
         self.articlesViewController.articlesPresenter = self.articlesPresenter
-
+        
         self.articlesPresenter.view = self.articlesViewController
-
+        
         self.rootWireframe.showRootViewControllerInWindow(self.articlesViewController, window: window)
     }
     
@@ -68,5 +68,15 @@ class ArticlesWireframe : NSObject
     {
         self.detailsWireframe.article = article
         self.detailsWireframe.presentDetailsInterfaceFromViewController(self.articlesViewController)
+    }
+    
+    
+    // MARK: Private
+    
+    func articlesViewControllerFromStoryboard() -> ArticlesViewController
+    {
+        let storyboard = UIStoryboard(name: self.storyboardName, bundle: nil)
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(self.articlesViewControllerIdentifier) as! ArticlesViewController
+        return viewController
     }
 }

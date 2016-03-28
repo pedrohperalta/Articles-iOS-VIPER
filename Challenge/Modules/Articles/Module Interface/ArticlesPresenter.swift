@@ -24,7 +24,6 @@ class ArticlesPresenter : ArticlesOutput
     
     // MARK: ArticlesOutput
 
-
     func receiveArticles(articles: [Article])
     {
         if articles.count > 0 {
@@ -37,7 +36,6 @@ class ArticlesPresenter : ArticlesOutput
     
     
     // MARK: Public
-
 
     func requestArticles()
     {
