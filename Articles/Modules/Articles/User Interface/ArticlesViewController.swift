@@ -75,10 +75,18 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
         self.articlesTableView.reloadData()
     }
 
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    
+    // MARK: UITableView DataSource
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return self.articles != nil ? self.articles.count : 0
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 1
     }
     
     
@@ -86,9 +94,15 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     {
         let articleCell = tableView.dequeueReusableCellWithIdentifier(ArticleTableViewCell.kArticlesCellIdentifier) as! ArticleTableViewCell
 
-        articleCell.setupWithArticle(self.articles[indexPath.row])
+        articleCell.setupWithArticle(self.articles[indexPath.section])
 
         return articleCell
+    }
+    
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        return UIView()
     }
 
 
@@ -96,6 +110,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.articlesPresenter.presentDetailsScreenForArticle(self.articles[indexPath.row])
+        self.articlesPresenter.presentDetailsScreenForArticle(self.articles[indexPath.section])
     }
 }
