@@ -28,7 +28,7 @@ class AppDependencies : NSObject
 
         // Articles Module Setup
         articlesInteractor.output = articlesPresenter
-        articlesPresenter.provider = articlesInteractor
+        articlesPresenter.interactor = articlesInteractor
         articlesPresenter.wireframe = articlesWireframe
         articlesWireframe.rootWireframe = rootWireframe
         articlesWireframe.articlesPresenter = articlesPresenter

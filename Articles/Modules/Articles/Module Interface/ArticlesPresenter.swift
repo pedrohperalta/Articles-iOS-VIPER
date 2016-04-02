@@ -6,13 +6,17 @@
 import Foundation
 
 
-class ArticlesPresenter : ArticlesOutput
+class ArticlesPresenter : ModuleInterface, ArticlesInteractorOutput
 {
+    // MARK: Instance Variables
+    
     weak var view: ArticlesViewInterface!
+    var interactor: ArticlesInteractorInput!
     var wireframe: ArticlesWireframe!
-    var provider: ArticlesProvider!
-
     var articles: [Article]!
+    
+    
+    // MARK: Enums
     
     enum ArticlesSortBy {
         case Date
@@ -22,13 +26,27 @@ class ArticlesPresenter : ArticlesOutput
     }
     
     
-    // MARK: ArticlesOutput
-
-    func receiveArticles(articles: [Article])
+    // MARK: ModuleInterface
+    
+    func updateView()
+    {
+        self.interactor.fetchArticles()
+    }
+    
+    
+    func showDetailsForArticle(article: Article)
+    {
+        self.wireframe.presentDetailsInterfaceForArticle(article)
+    }
+    
+    
+    // MARK: ArticlesInteractorOutput
+    
+    func articlesFetched(articles: [Article])
     {
         if articles.count > 0 {
             self.articles = articles
-            view.showArticlesList(articles)
+            view.showArticlesData(articles)
         } else {
             view.showNoContentScreen()
         }
@@ -37,12 +55,6 @@ class ArticlesPresenter : ArticlesOutput
     
     // MARK: Public
 
-    func requestArticles()
-    {
-        self.provider.downloadArticles()
-    }
-    
-    
     func sortArticles()
     {
         self.wireframe.presentArticlesSortOptions()
@@ -54,27 +66,21 @@ class ArticlesPresenter : ArticlesOutput
         switch sortBy {
 
         case .Date:
-            view.showArticlesList(self.articles.sort({ $0.date < $1.date }))
+            view.showArticlesData(self.articles.sort({ $0.date < $1.date }))
             break
             
         case .Title:
-            view.showArticlesList(self.articles.sort({ $0.title < $1.title }))
+            view.showArticlesData(self.articles.sort({ $0.title < $1.title }))
             break
             
         case .Author:
-            view.showArticlesList(self.articles.sort({ $0.authors < $1.authors }))
+            view.showArticlesData(self.articles.sort({ $0.authors < $1.authors }))
             break
             
         case .Website:
-            view.showArticlesList(self.articles.sort({ $0.website < $1.website }))
+            view.showArticlesData(self.articles.sort({ $0.website < $1.website }))
             break
             
         }
-    }
-
-
-    func presentDetailsScreenForArticle(article: Article)
-    {
-        self.wireframe.presentDetailsInterfaceForArticle(article)
     }
 }

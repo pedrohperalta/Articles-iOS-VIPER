@@ -14,8 +14,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     let navigationBarTitle = "NAVIGATION_BAR_TITLE"
     let buttonSortTitle = "BUTTON_SORT_TITLE"
     
-    let sortAction = "onSortButtonClicked:"
-    
     
     // MARK: Outlets
     
@@ -33,29 +31,43 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        self.articlesTableView.dataSource = self
-        self.articlesTableView.delegate = self
-        
-        self.setupNavigationBar()
-        self.articlesPresenter.requestArticles()
-        
+        self.setupView()
+        self.articlesPresenter.updateView()
         HUD.show(.Progress)
     }
     
     
     // MARK: Private
     
-    func setupNavigationBar()
+    private func setupView()
     {
-        let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized, style: .Plain, target:self, action: Selector(self.sortAction))
+        self.setupNavigationBar()
+        self.setupTableView()
+    }
+    
+    
+    private func setupTableView()
+    {
+        self.articlesTableView.dataSource = self
+        self.articlesTableView.delegate = self
+        self.articlesTableView.rowHeight = UITableViewAutomaticDimension
+        self.articlesTableView.estimatedRowHeight = 230.0
+    }
+    
+    
+    private func setupNavigationBar()
+    {
+        let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized,
+                                         style: .Plain,
+                                         target: self,
+                                         action: #selector(ArticlesViewController.onSortButtonClicked(_:)))
         
         self.navigationItem.rightBarButtonItem = sortButton
         self.navigationItem.title = self.navigationBarTitle.localized
     }
     
     
-    func onSortButtonClicked(sender: UIBarButtonItem)
+    @objc private func onSortButtonClicked(sender: UIBarButtonItem)
     {
         self.articlesPresenter.sortArticles()
     }
@@ -65,10 +77,11 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     func showNoContentScreen()
     {
+        // Show custom empty screen.
     }
     
     
-    func showArticlesList(articles: [Article])
+    func showArticlesData(articles: [Article])
     {
         HUD.hide()
         self.articles = articles
@@ -110,6 +123,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.articlesPresenter.presentDetailsScreenForArticle(self.articles[indexPath.section])
+        self.articlesPresenter.showDetailsForArticle(self.articles[indexPath.section])
     }
 }

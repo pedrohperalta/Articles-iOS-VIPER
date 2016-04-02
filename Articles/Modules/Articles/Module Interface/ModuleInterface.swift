@@ -6,7 +6,8 @@
 import Foundation
 
 
-protocol ArticlesProvider : class
+protocol ModuleInterface: class
 {
-    func downloadArticles()
+    func updateView()
+    func showDetailsForArticle(article: Article)
 }

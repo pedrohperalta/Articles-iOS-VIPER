@@ -8,18 +8,26 @@ import Alamofire
 import AlamofireObjectMapper
 
 
-class ArticlesInteractor : ArticlesProvider
+class ArticlesInteractor : ArticlesInteractorInput
 {
-    weak var output: ArticlesOutput!
+    // MARK: Constants
+    
+    let url = "https://www.ckl.io/challenge"
+    
+    
+    // MARK: Instance Variables
+    
+    weak var output: ArticlesInteractorOutput!
 
 
-    func downloadArticles()
+    // MARK: ArticlesInteractorInput
+    
+    func fetchArticles()
     {
-        let url = "https://www.ckl.io/challenge"
         Alamofire.request(.GET, url).responseArray { (response: Response<[Article], NSError>) in
 
             let articlesArray = response.result.value
-            self.output.receiveArticles(articlesArray!)
+            self.output.articlesFetched(articlesArray!)
         }
     }
 }
