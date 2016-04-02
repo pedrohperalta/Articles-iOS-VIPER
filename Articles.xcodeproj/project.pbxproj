@@ -256,6 +256,8 @@
 		B22A5A821CB051F500856847 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2F49F561C9A3B1200F2CDE7 /* Info.plist */,
+				B2F49F531C9A3B1200F2CDE7 /* LaunchScreen.storyboard */,
 				B2F56C191CA8C1D100C52F2D /* ArticlesStoryboard.storyboard */,
 			);
 			name = Resources;
@@ -285,8 +287,6 @@
 				A9213740E6471B2B03E877F6 /* Application */,
 				A92131F74C1FDBDCB703D285 /* Assets */,
 				A9213ED015B1CE0C92E39198 /* Common */,
-				B2F49F561C9A3B1200F2CDE7 /* Info.plist */,
-				B2F49F531C9A3B1200F2CDE7 /* LaunchScreen.storyboard */,
 				A9213D8C2F5A413FB0C03E54 /* Models */,
 				A9213C288222D3F52CE25426 /* Modules */,
 				B22A5A821CB051F500856847 /* Resources */,
