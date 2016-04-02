@@ -10,7 +10,7 @@ class ArticlesPresenter : ArticlesModuleInterface, ArticlesInteractorOutput
 {
     // MARK: Instance Variables
     
-    var view: ArticlesViewInterface!
+    weak var view: ArticlesViewInterface!
     var interactor: ArticlesInteractorInput!
     var wireframe: ArticlesWireframe!
     var articles: [Article]!

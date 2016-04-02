@@ -22,7 +22,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     // MARK: Instance Variables
     
-    var articlesPresenter: ArticlesModuleInterface!
+    var presenter: ArticlesModuleInterface!
     var articles: [Article]!
 
 
@@ -32,7 +32,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     {
         super.viewDidLoad()
         self.setupView()
-        self.articlesPresenter.updateView()
+        self.presenter.updateView()
         HUD.show(.Progress)
     }
     
@@ -69,7 +69,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     @objc private func onSortButtonClicked(sender: UIBarButtonItem)
     {
-        self.articlesPresenter.sortArticles()
+        self.presenter.sortArticles()
     }
     
     
@@ -129,6 +129,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.articlesPresenter.showDetailsForArticle(self.articles[indexPath.section])
+        self.presenter.showDetailsForArticle(self.articles[indexPath.section])
     }
 }

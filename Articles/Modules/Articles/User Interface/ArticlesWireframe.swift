@@ -22,9 +22,9 @@ class ArticlesWireframe : NSObject
     
     
     // MARK: Instance Variables
-    
+
+    weak var articlesViewController: ArticlesViewController!
     var articlesPresenter: ArticlesPresenter!
-    var articlesViewController: ArticlesViewController!
     var rootWireframe: RootWireframe!
     var detailsWireframe: DetailsWireframe!
     
@@ -34,7 +34,7 @@ class ArticlesWireframe : NSObject
     func presentArticlesInterfaceFromWindow(window: UIWindow)
     {
         self.articlesViewController = self.articlesViewControllerFromStoryboard()
-        self.articlesViewController.articlesPresenter = self.articlesPresenter
+        self.articlesViewController.presenter = self.articlesPresenter
         
         self.articlesPresenter.view = self.articlesViewController
         
@@ -62,7 +62,9 @@ class ArticlesWireframe : NSObject
             style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Website) }))
         
-        alert.addAction(UIAlertAction(title: self.cancelString.localized, style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: self.cancelString.localized,
+                style: .Cancel,
+                handler: nil))
         
         self.articlesViewController.presentViewController(alert, animated: true, completion: nil)
     }
@@ -70,14 +72,13 @@ class ArticlesWireframe : NSObject
 
     func presentDetailsInterfaceForArticle(article: Article)
     {
-        self.detailsWireframe.article = article
-        self.detailsWireframe.presentDetailsInterfaceFromViewController(self.articlesViewController)
+        self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController, article: article)
     }
     
     
     // MARK: Private
     
-    func articlesViewControllerFromStoryboard() -> ArticlesViewController
+    private func articlesViewControllerFromStoryboard() -> ArticlesViewController
     {
         let storyboard = UIStoryboard(name: self.storyboardName, bundle: nil)
         let viewController = storyboard.instantiateViewControllerWithIdentifier(self.articlesViewControllerIdentifier) as! ArticlesViewController
