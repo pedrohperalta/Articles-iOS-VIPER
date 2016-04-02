@@ -16,7 +16,6 @@ class ArticlesWireframe : NSObject
     let authorString = "ALERT_AUTHOR_OPTION"
     let webSiteString = "ALERT_WEBSITE_OPTION"
     let cancelString = "ALERT_CANCEL_OPTION"
-    
     let storyboardName = "ArticlesStoryboard"
     let articlesViewControllerIdentifier = "ArticlesViewController"
     
@@ -72,12 +71,19 @@ class ArticlesWireframe : NSObject
 
     func presentDetailsInterfaceForArticle(article: Article)
     {
-        self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController, article: article)
+        self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController)
+        self.sendArticleToDetailsPresenter(self.detailsWireframe.detailsPresenter, article: article)
     }
     
     
     // MARK: Private
-    
+
+    private func sendArticleToDetailsPresenter(detailsPresenter: DetailsPresenter, article: Article)
+    {
+        detailsPresenter.article = article
+    }
+
+
     private func articlesViewControllerFromStoryboard() -> ArticlesViewController
     {
         let storyboard = UIStoryboard(name: self.storyboardName, bundle: nil)
