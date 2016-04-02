@@ -39,8 +39,10 @@ class ArticlesWireframe : NSObject
         
         self.rootWireframe.showRootViewControllerInWindow(self.articlesViewController, window: window)
     }
-    
-    
+
+
+    // MARK: ArticlesWireframeInput
+
     func presentArticlesSortOptions()
     {
         let alert = UIAlertController(title: self.alertSortByTitle.localized, message: nil, preferredStyle: .ActionSheet)

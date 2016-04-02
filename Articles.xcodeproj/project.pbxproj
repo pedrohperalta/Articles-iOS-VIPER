@@ -15,6 +15,7 @@
 		A92133D448BCAFA6023C2B11 /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92131E5D968F36D222D9231 /* ModuleInterface.swift */; };
 		A92134E538927018594FD03B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213402A50D88D9E7712105 /* DetailsViewController.swift */; };
 		A9213581D19E145E9202C4EA /* ArticlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92137827C76E71FD3D21CFE /* ArticlesPresenter.swift */; };
+		A9213984CDEA4A9AC1DF60E4 /* ArticlesWireframeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92132D1EC56C163E878BA77 /* ArticlesWireframeInput.swift */; };
 		A9213996722C378274AFB5F4 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213FB5E3EFD49973803DBB /* RootWireframe.swift */; };
 		A92139D6463A5910955F4BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213B75C7AE91287999AB91 /* AppDelegate.swift */; };
 		A9213A6C4F68BA27AD784FF1 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213EEF71F3F36FB565FEFE /* DetailsPresenter.swift */; };
@@ -38,6 +39,7 @@
 		A92131D49D5B54E14307E327 /* ArticlesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesInteractor.swift; sourceTree = "<group>"; };
 		A92131E5D968F36D222D9231 /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleInterface.swift; sourceTree = "<group>"; };
 		A92131E9458CE9DCF67DDCCC /* DetailsViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewInterface.swift; sourceTree = "<group>"; };
+		A92132D1EC56C163E878BA77 /* ArticlesWireframeInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesWireframeInput.swift; sourceTree = "<group>"; };
 		A9213350D7792A318D8B134A /* ArticlesWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticlesWireframe.swift; path = ../ArticlesWireframe.swift; sourceTree = "<group>"; };
 		A9213402A50D88D9E7712105 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A92134DA779B401617B5EDFA /* DetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsWireframe.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				A9213350D7792A318D8B134A /* ArticlesWireframe.swift */,
+				A92132D1EC56C163E878BA77 /* ArticlesWireframeInput.swift */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				A9213D390B081125F7F21AA1 /* DetailsWireframe.swift in Sources */,
 				B22A5A841CB056C600856847 /* ArticlesInteractorInput.swift in Sources */,
 				A92132A8F959EA076FDF695D /* DetailsViewInterface.swift in Sources */,
+				A9213984CDEA4A9AC1DF60E4 /* ArticlesWireframeInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
