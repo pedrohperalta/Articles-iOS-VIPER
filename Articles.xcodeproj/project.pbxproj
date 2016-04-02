@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5065691CF425BD7EE56C1B52 /* Pods_Articles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A61607C70F1C91B4CD8E7AE2 /* Pods_Articles.framework */; };
 		A9213050C96C7798BFD816B0 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213B5787CD6D85F70B13A9 /* ArticleTableViewCell.swift */; };
 		A921307DAD28A98887FC7065 /* ArticlesViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213D89CE1563F471E95DAD /* ArticlesViewInterface.swift */; };
 		A921324E52CDA9D9AFAF4B00 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921313F6BC3536ACBEDB300 /* ArticlesViewController.swift */; };
@@ -29,12 +30,12 @@
 		B2F49F551C9A3B1200F2CDE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F49F531C9A3B1200F2CDE7 /* LaunchScreen.storyboard */; };
 		B2F56C181CA8B00F00C52F2D /* (null) in Resources */ = {isa = PBXBuildFile; };
 		B2F56C1A1CA8C1D100C52F2D /* ArticlesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2F56C191CA8C1D100C52F2D /* ArticlesStoryboard.storyboard */; };
-		B885CA22730BD64E3866CFC4 /* Pods_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF8788C7074C8ABBD2025F6 /* Pods_Challenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2060A2082FDE3F5736CBDFEF /* Pods-Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge/Pods-Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		93FF74D53A863E425A3EE2A0 /* Pods-Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Challenge/Pods-Challenge.release.xcconfig"; sourceTree = "<group>"; };
+		A61607C70F1C91B4CD8E7AE2 /* Pods_Articles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Articles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A921313F6BC3536ACBEDB300 /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		A92131D49D5B54E14307E327 /* ArticlesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesInteractor.swift; sourceTree = "<group>"; };
 		A92131E5D968F36D222D9231 /* ArticlesOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesOutput.swift; sourceTree = "<group>"; };
@@ -54,11 +55,13 @@
 		B20DE8331CA5B9EC00FD08BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Localizable.strings; sourceTree = "<group>"; };
 		B20DE8351CA5BB8C00FD08BE /* String+ Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ Localized.swift"; sourceTree = "<group>"; };
 		B2B287D31C9A469500CF3411 /* Articles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
-		B2F49F471C9A3B1200F2CDE7 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2F49F471C9A3B1200F2CDE7 /* Articles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Articles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F49F541C9A3B1200F2CDE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2F49F561C9A3B1200F2CDE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2F56C191CA8C1D100C52F2D /* ArticlesStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArticlesStoryboard.storyboard; sourceTree = "<group>"; };
+		B715BF2F93B6A919B421A6C1 /* Pods-Articles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Articles.release.xcconfig"; path = "Pods/Target Support Files/Pods-Articles/Pods-Articles.release.xcconfig"; sourceTree = "<group>"; };
 		EEF8788C7074C8ABBD2025F6 /* Pods_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F580560133197485E2EC1737 /* Pods-Articles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Articles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Articles/Pods-Articles.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B885CA22730BD64E3866CFC4 /* Pods_Challenge.framework in Frameworks */,
+				5065691CF425BD7EE56C1B52 /* Pods_Articles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				EEF8788C7074C8ABBD2025F6 /* Pods_Challenge.framework */,
+				A61607C70F1C91B4CD8E7AE2 /* Pods_Articles.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -226,7 +230,7 @@
 		B2F49F3E1C9A3B1200F2CDE7 = {
 			isa = PBXGroup;
 			children = (
-				B2F49F491C9A3B1200F2CDE7 /* Challenge */,
+				B2F49F491C9A3B1200F2CDE7 /* Articles */,
 				B2F49F481C9A3B1200F2CDE7 /* Products */,
 				B8F463031F2A13138A56285D /* Pods */,
 				AF7A6B084E16E4D8EE737B7D /* Frameworks */,
@@ -236,12 +240,12 @@
 		B2F49F481C9A3B1200F2CDE7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B2F49F471C9A3B1200F2CDE7 /* Challenge.app */,
+				B2F49F471C9A3B1200F2CDE7 /* Articles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B2F49F491C9A3B1200F2CDE7 /* Challenge */ = {
+		B2F49F491C9A3B1200F2CDE7 /* Articles */ = {
 			isa = PBXGroup;
 			children = (
 				B2F49F531C9A3B1200F2CDE7 /* LaunchScreen.storyboard */,
@@ -253,7 +257,7 @@
 				A92133F1AC3155C58661BBCD /* Utils */,
 				A9213ED015B1CE0C92E39198 /* Common */,
 			);
-			path = Challenge;
+			path = Articles;
 			sourceTree = "<group>";
 		};
 		B8F463031F2A13138A56285D /* Pods */ = {
@@ -261,6 +265,8 @@
 			children = (
 				2060A2082FDE3F5736CBDFEF /* Pods-Challenge.debug.xcconfig */,
 				93FF74D53A863E425A3EE2A0 /* Pods-Challenge.release.xcconfig */,
+				F580560133197485E2EC1737 /* Pods-Articles.debug.xcconfig */,
+				B715BF2F93B6A919B421A6C1 /* Pods-Articles.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -268,9 +274,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B2F49F461C9A3B1200F2CDE7 /* Challenge */ = {
+		B2F49F461C9A3B1200F2CDE7 /* Articles */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B2F49F591C9A3B1200F2CDE7 /* Build configuration list for PBXNativeTarget "Challenge" */;
+			buildConfigurationList = B2F49F591C9A3B1200F2CDE7 /* Build configuration list for PBXNativeTarget "Articles" */;
 			buildPhases = (
 				5A9AAD5FB9D909BE1E48FD02 /* Check Pods Manifest.lock */,
 				B2F49F431C9A3B1200F2CDE7 /* Sources */,
@@ -283,9 +289,9 @@
 			);
 			dependencies = (
 			);
-			name = Challenge;
+			name = Articles;
 			productName = Challenge;
-			productReference = B2F49F471C9A3B1200F2CDE7 /* Challenge.app */;
+			productReference = B2F49F471C9A3B1200F2CDE7 /* Articles.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -296,14 +302,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Cheesecake Labs";
+				ORGANIZATIONNAME = "Pedro Peralta";
 				TargetAttributes = {
 					B2F49F461C9A3B1200F2CDE7 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
-			buildConfigurationList = B2F49F421C9A3B1200F2CDE7 /* Build configuration list for PBXProject "Challenge" */;
+			buildConfigurationList = B2F49F421C9A3B1200F2CDE7 /* Build configuration list for PBXProject "Articles" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -316,7 +322,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B2F49F461C9A3B1200F2CDE7 /* Challenge */,
+				B2F49F461C9A3B1200F2CDE7 /* Articles */,
 			);
 		};
 /* End PBXProject section */
@@ -349,7 +355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Challenge/Pods-Challenge-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Articles/Pods-Articles-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5A9AAD5FB9D909BE1E48FD02 /* Check Pods Manifest.lock */ = {
@@ -379,7 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Challenge/Pods-Challenge-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Articles/Pods-Articles-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -516,24 +522,24 @@
 		};
 		B2F49F5A1C9A3B1200F2CDE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2060A2082FDE3F5736CBDFEF /* Pods-Challenge.debug.xcconfig */;
+			baseConfigurationReference = F580560133197485E2EC1737 /* Pods-Articles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Challenge/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Articles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.ckl.challenge.Challenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peralta.articles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		B2F49F5B1C9A3B1200F2CDE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93FF74D53A863E425A3EE2A0 /* Pods-Challenge.release.xcconfig */;
+			baseConfigurationReference = B715BF2F93B6A919B421A6C1 /* Pods-Articles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Challenge/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Articles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.ckl.challenge.Challenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peralta.articles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -541,7 +547,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B2F49F421C9A3B1200F2CDE7 /* Build configuration list for PBXProject "Challenge" */ = {
+		B2F49F421C9A3B1200F2CDE7 /* Build configuration list for PBXProject "Articles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B2F49F571C9A3B1200F2CDE7 /* Debug */,
@@ -550,7 +556,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B2F49F591C9A3B1200F2CDE7 /* Build configuration list for PBXNativeTarget "Challenge" */ = {
+		B2F49F591C9A3B1200F2CDE7 /* Build configuration list for PBXNativeTarget "Articles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B2F49F5A1C9A3B1200F2CDE7 /* Debug */,
