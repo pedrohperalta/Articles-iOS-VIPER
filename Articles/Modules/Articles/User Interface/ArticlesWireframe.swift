@@ -46,16 +46,20 @@ class ArticlesWireframe : NSObject
     {
         let alert = UIAlertController(title: self.alertSortByTitle.localized, message: nil, preferredStyle: .ActionSheet)
         
-        alert.addAction(UIAlertAction(title: self.dateString.localized, style: .Default,
+        alert.addAction(UIAlertAction(title: self.dateString.localized,
+            style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Date) }))
 
-        alert.addAction(UIAlertAction(title: self.titleString.localized, style: .Default,
+        alert.addAction(UIAlertAction(title: self.titleString.localized,
+            style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Title) }))
         
-        alert.addAction(UIAlertAction(title: self.authorString.localized, style: .Default,
+        alert.addAction(UIAlertAction(title: self.authorString.localized,
+            style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Author) }))
         
-        alert.addAction(UIAlertAction(title: self.webSiteString.localized, style: .Default,
+        alert.addAction(UIAlertAction(title: self.webSiteString.localized,
+            style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Website) }))
         
         alert.addAction(UIAlertAction(title: self.cancelString.localized, style: .Cancel, handler: nil))

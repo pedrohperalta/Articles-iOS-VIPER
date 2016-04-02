@@ -46,15 +46,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     }
     
     
-    private func setupTableView()
-    {
-        self.articlesTableView.dataSource = self
-        self.articlesTableView.delegate = self
-        self.articlesTableView.rowHeight = UITableViewAutomaticDimension
-        self.articlesTableView.estimatedRowHeight = 230.0
-    }
-    
-    
     private func setupNavigationBar()
     {
         let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized,
@@ -64,6 +55,15 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
         
         self.navigationItem.rightBarButtonItem = sortButton
         self.navigationItem.title = self.navigationBarTitle.localized
+    }
+    
+    
+    private func setupTableView()
+    {
+        self.articlesTableView.dataSource = self
+        self.articlesTableView.delegate = self
+        self.articlesTableView.rowHeight = UITableViewAutomaticDimension
+        self.articlesTableView.estimatedRowHeight = 230.0
     }
     
     
@@ -110,6 +110,12 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
         articleCell.setupWithArticle(self.articles[indexPath.section])
 
         return articleCell
+    }
+    
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        return section == 0 ? UIView() : nil
     }
     
     
