@@ -6,8 +6,9 @@
 import Foundation
 
 
-protocol ModuleInterface: class
+protocol ArticlesModuleInterface: class
 {
     func updateView()
+    func sortArticles()
     func showDetailsForArticle(article: Article)
 }

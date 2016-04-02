@@ -22,7 +22,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     // MARK: Instance Variables
     
-    var articlesPresenter: ArticlesPresenter!
+    var articlesPresenter: ArticlesModuleInterface!
     var articles: [Article]!
 
 
