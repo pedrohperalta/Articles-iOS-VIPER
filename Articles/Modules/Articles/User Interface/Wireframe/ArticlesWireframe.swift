@@ -73,8 +73,8 @@ class ArticlesWireframe : NSObject
 
     func presentDetailsInterfaceForArticle(article: Article)
     {
-        self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController)
         self.sendArticleToDetailsPresenter(self.detailsWireframe.detailsPresenter, article: article)
+        self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController)
     }
     
     
