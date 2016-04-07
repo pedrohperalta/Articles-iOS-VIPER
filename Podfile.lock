@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (3.3.0)
+  - AlamofireObjectMapper (2.1.2):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
+  - Kingfisher (2.2.0)
+  - ObjectMapper (1.2.0)
+  - PKHUD (3.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - AlamofireObjectMapper (~> 2.1)
+  - Kingfisher (~> 2.1)
+  - ObjectMapper (~> 1.1)
+  - PKHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
+  AlamofireObjectMapper: 82391c31f23e37bdb2660da174bcf81b202da39d
+  Kingfisher: 350869ed88d6451803b390475d977abdd9f0a357
+  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
+  PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+
+COCOAPODS: 0.39.0
