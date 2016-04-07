@@ -30,6 +30,20 @@ class ArticlesWireframe : NSObject
     
     // MARK: Public
     
+    override init()
+    {
+        super.init()
+        
+        let articlesInteractor = ArticlesInteractor()
+        
+        self.articlesPresenter = ArticlesPresenter()
+        self.articlesPresenter.interactor = articlesInteractor
+        self.articlesPresenter.wireframe = self
+        
+        articlesInteractor.output = self.articlesPresenter
+    }
+    
+    
     func presentArticlesInterfaceFromWindow(window: UIWindow)
     {
         self.articlesViewController = self.articlesViewControllerFromStoryboard()
@@ -73,6 +87,7 @@ class ArticlesWireframe : NSObject
 
     func presentDetailsInterfaceForArticle(article: Article)
     {
+        self.detailsWireframe = DetailsWireframe()
         self.sendArticleToDetailsPresenter(self.detailsWireframe.detailsPresenter, article: article)
         self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController)
     }

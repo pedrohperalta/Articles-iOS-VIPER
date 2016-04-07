@@ -8,38 +8,19 @@ import UIKit
 
 class AppDependencies : NSObject
 {
+    // MARK: Instance Variables
+    
     var articlesWireframe: ArticlesWireframe!
 
 
-    func configureDependencies()
+    // MARK: Public
+    
+    override init()
     {
         let rootWireframe = RootWireframe()
-
-        // Articles Module Classes
-        let articlesInteractor = ArticlesInteractor()
-        let articlesPresenter = ArticlesPresenter()
-        let articlesWireframe = ArticlesWireframe()
-
-
-        // Details Module Classes
-        let detailsPresenter = DetailsPresenter()
-        let detailsWireframe = DetailsWireframe()
-
-
-        // Articles Module Setup
-        articlesInteractor.output = articlesPresenter
-        articlesPresenter.interactor = articlesInteractor
-        articlesPresenter.wireframe = articlesWireframe
-        articlesWireframe.rootWireframe = rootWireframe
-        articlesWireframe.articlesPresenter = articlesPresenter
-        articlesWireframe.detailsWireframe = detailsWireframe
-
-        self.articlesWireframe = articlesWireframe
-
-
-        // Details Module Setup
-        detailsPresenter.wireframe = detailsWireframe
-        detailsWireframe.detailsPresenter = detailsPresenter
+        
+        self.articlesWireframe = ArticlesWireframe()
+        self.articlesWireframe.rootWireframe = rootWireframe
     }
 
 

@@ -20,6 +20,13 @@ class DetailsWireframe : NSObject
 
 
     // MARK: Public
+    
+    override init()
+    {
+        super.init()
+        self.detailsPresenter = DetailsPresenter()
+    }
+    
 
     func presentArticleDetailsInterfaceFromViewController(controller: UIViewController)
     {
@@ -27,6 +34,7 @@ class DetailsWireframe : NSObject
         self.detailsViewController.presenter = self.detailsPresenter
         
         self.detailsPresenter.view = detailsViewController
+        self.detailsPresenter.wireframe = self
         
         controller.navigationController!.pushViewController(detailsViewController, animated: true)
     }
