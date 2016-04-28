@@ -6,7 +6,7 @@
 import UIKit
 
 
-class ArticlesWireframe : NSObject
+class ArticlesWireframe : NSObject, ArticlesWireframeInput
 {
     // MARK: Constants
     
