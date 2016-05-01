@@ -5,6 +5,7 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 import AlamofireObjectMapper
 
 
@@ -26,8 +27,16 @@ class ArticlesInteractor : ArticlesInteractorInput
     {
         Alamofire.request(.GET, url).responseArray { (response: Response<[Article], NSError>) in
 
-            let articlesArray = response.result.value
-            self.output.articlesFetched(articlesArray!)
+            if let articlesArray = response.result.value {
+                let articlesDictionaryArray: NSMutableArray = []
+
+                for article in articlesArray {
+                    let JSONString = Mapper().toJSONString(article, prettyPrint: true)
+                    articlesDictionaryArray.addObject(JSONString!.convertToDictionary()!)
+                }
+
+                self.output.articlesFetched(articlesDictionaryArray)
+            }
         }
     }
 }

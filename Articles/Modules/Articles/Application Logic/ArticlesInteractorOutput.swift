@@ -11,5 +11,5 @@ import Foundation
 
 protocol ArticlesInteractorOutput : class
 {
-    func articlesFetched(articles: [Article])
+    func articlesFetched(articles: NSArray)
 }

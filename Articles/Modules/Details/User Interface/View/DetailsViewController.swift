@@ -37,30 +37,23 @@ class DetailsViewController : UIViewController, DetailsViewInterface
     {
         super.viewDidLoad()
         self.presenter.updateView()
-        self.navigationController!.title = self.kNavigationTitle.localized
+        self.navigationController!.title = self.kNavigationTitle.localized()
     }
 
 
     // MARK: DetailsViewInterface
 
-    func showArticleDetails(article: Article)
+    func showArticleDetails(article: NSDictionary)
     {
-        self.setupArticleImage(article)
-        self.authorsLabel.text = article.authors
-        self.dateLabel.text = article.date
-        self.titleLabel.text = article.title
-        self.contentLabel.text = article.content
-    }
-
-
-    // MARK: Private
-    
-    func setupArticleImage(article: Article)
-    {
-        if (article.imageUrl != nil) {
-            self.articleImageView.kf_setImageWithURL(NSURL(string: article.imageUrl!)!, placeholderImage:nil)
+        if article["image"] != nil {
+            self.articleImageView.kf_setImageWithURL(NSURL(string: article["image"] as! String)!, placeholderImage:nil)
         } else {
             self.articleImageView.image = UIImage(named: self.kImagePlaceHolder)
         }
+
+        self.authorsLabel.text = article["authors"] as! String
+        self.dateLabel.text = article["date"] as! String
+        self.titleLabel.text = article["title"] as! String
+        self.contentLabel.text = article["content"] as! String
     }
 }

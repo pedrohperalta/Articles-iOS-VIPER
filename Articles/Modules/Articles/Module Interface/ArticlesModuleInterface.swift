@@ -10,5 +10,5 @@ protocol ArticlesModuleInterface: class
 {
     func updateView()
     func sortArticles()
-    func showDetailsForArticle(article: Article)
+    func showDetailsForArticle(article: NSDictionary)
 }

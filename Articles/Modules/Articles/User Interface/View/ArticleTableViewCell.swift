@@ -32,13 +32,13 @@ class ArticleTableViewCell : UITableViewCell
 
     // MARK: Public
 
-    func setupWithArticle(article: Article)
+    func setupWithArticle(article: NSDictionary)
     {
-        self.authorsLabel?.text = article.authors!
-        self.titleLabel?.text = article.title!
-        
-        if (article.imageUrl != nil) {
-            self.articleImageView.kf_setImageWithURL(NSURL(string: article.imageUrl!)!, placeholderImage:nil)
+        self.authorsLabel?.text = article["authors"] as! String
+        self.titleLabel?.text = article["title"] as! String
+
+        if (article["image"] != nil) {
+            self.articleImageView.kf_setImageWithURL(NSURL(string: article["image"] as! String)!, placeholderImage:nil)
         } else {
             self.articleImageView.image = UIImage(named: self.kImagePlaceHolder)
         }

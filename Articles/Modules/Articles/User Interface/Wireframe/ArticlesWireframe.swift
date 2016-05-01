@@ -59,25 +59,25 @@ class ArticlesWireframe : NSObject, ArticlesWireframeInput
 
     func presentArticlesSortOptions()
     {
-        let alert = UIAlertController(title: self.alertSortByTitle.localized, message: nil, preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: self.alertSortByTitle.localized(), message: nil, preferredStyle: .ActionSheet)
         
-        alert.addAction(UIAlertAction(title: self.dateString.localized,
+        alert.addAction(UIAlertAction(title: self.dateString.localized(),
             style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Date) }))
 
-        alert.addAction(UIAlertAction(title: self.titleString.localized,
+        alert.addAction(UIAlertAction(title: self.titleString.localized(),
             style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Title) }))
         
-        alert.addAction(UIAlertAction(title: self.authorString.localized,
+        alert.addAction(UIAlertAction(title: self.authorString.localized(),
             style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Author) }))
         
-        alert.addAction(UIAlertAction(title: self.webSiteString.localized,
+        alert.addAction(UIAlertAction(title: self.webSiteString.localized(),
             style: .Default,
             handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Website) }))
         
-        alert.addAction(UIAlertAction(title: self.cancelString.localized,
+        alert.addAction(UIAlertAction(title: self.cancelString.localized(),
                 style: .Cancel,
                 handler: nil))
         
@@ -85,7 +85,7 @@ class ArticlesWireframe : NSObject, ArticlesWireframeInput
     }
 
 
-    func presentDetailsInterfaceForArticle(article: Article)
+    func presentDetailsInterfaceForArticle(article: NSDictionary)
     {
         self.detailsWireframe = DetailsWireframe()
         self.sendArticleToDetailsPresenter(self.detailsWireframe.detailsPresenter, article: article)
@@ -95,7 +95,7 @@ class ArticlesWireframe : NSObject, ArticlesWireframeInput
     
     // MARK: Private
 
-    private func sendArticleToDetailsPresenter(detailsPresenter: DetailsPresenter, article: Article)
+    private func sendArticleToDetailsPresenter(detailsPresenter: DetailsPresenter, article: NSDictionary)
     {
         detailsPresenter.article = article
     }

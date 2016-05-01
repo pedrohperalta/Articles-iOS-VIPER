@@ -9,5 +9,5 @@ import Foundation
 protocol ArticlesWireframeInput
 {
     func presentArticlesSortOptions()
-    func presentDetailsInterfaceForArticle(article: Article)
+    func presentDetailsInterfaceForArticle(article: NSDictionary)
 }

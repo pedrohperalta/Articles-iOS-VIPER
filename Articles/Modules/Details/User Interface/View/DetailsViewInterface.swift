@@ -8,5 +8,5 @@ import Foundation
 
 protocol DetailsViewInterface: class
 {
-    func showArticleDetails(article: Article)
+    func showArticleDetails(article: NSDictionary)
 }
