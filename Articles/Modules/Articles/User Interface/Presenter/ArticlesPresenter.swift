@@ -13,7 +13,7 @@ class ArticlesPresenter : ArticlesModuleInterface, ArticlesInteractorOutput
     weak var view: ArticlesViewInterface!
     var interactor: ArticlesInteractorInput!
     var wireframe: ArticlesWireframe!
-    var articles: [Article]!
+    var articles: NSArray!
     
     
     // MARK: Enums
@@ -40,7 +40,7 @@ class ArticlesPresenter : ArticlesModuleInterface, ArticlesInteractorOutput
     }
     
     
-    func showDetailsForArticle(article: Article)
+    func showDetailsForArticle(article: NSDictionary)
     {
         self.wireframe.presentDetailsInterfaceForArticle(article)
     }
@@ -48,7 +48,7 @@ class ArticlesPresenter : ArticlesModuleInterface, ArticlesInteractorOutput
     
     // MARK: ArticlesInteractorOutput
     
-    func articlesFetched(articles: [Article])
+    func articlesFetched(articles: NSArray)
     {
         if articles.count > 0 {
             self.articles = articles
@@ -66,21 +66,21 @@ class ArticlesPresenter : ArticlesModuleInterface, ArticlesInteractorOutput
         switch sortBy {
 
         case .Date:
-            self.view.showArticlesData(self.articles.sort({ $0.date < $1.date }))
+            self.view.showArticlesData(self.articles.sort({ ($0["date"] as! String) < ($1["date"] as! String) }))
             break
-            
+
         case .Title:
-            self.view.showArticlesData(self.articles.sort({ $0.title < $1.title }))
+            self.view.showArticlesData(self.articles.sort({ ($0["title"] as! String) < ($1["title"] as! String) }))
             break
-            
+
         case .Author:
-            self.view.showArticlesData(self.articles.sort({ $0.authors < $1.authors }))
+            self.view.showArticlesData(self.articles.sort({ ($0["authors"] as! String) < ($1["authors"] as! String) }))
             break
-            
+
         case .Website:
-            self.view.showArticlesData(self.articles.sort({ $0.website < $1.website }))
+            self.view.showArticlesData(self.articles.sort({ ($0["website"] as! String) < ($1["website"] as! String) }))
             break
-            
+
         }
     }
 }

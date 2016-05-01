@@ -12,7 +12,7 @@ class DetailsPresenter : DetailsModuleInterface
 
     weak var view: DetailsViewInterface!
     var wireframe: DetailsWireframe!
-    var article: Article!
+    var article: NSDictionary!
 
 
     // MARK: DetailsModuleInterface

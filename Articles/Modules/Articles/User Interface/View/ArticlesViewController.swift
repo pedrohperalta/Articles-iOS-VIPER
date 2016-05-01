@@ -23,7 +23,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     // MARK: Instance Variables
     
     var presenter: ArticlesModuleInterface!
-    var articles: [Article]!
+    var articles: NSArray!
 
 
     // MARK: Life Cycle
@@ -48,13 +48,13 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     
     private func setupNavigationBar()
     {
-        let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized,
+        let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized(),
                                          style: .Plain,
                                          target: self,
                                          action: #selector(ArticlesViewController.onSortButtonClicked(_:)))
         
         self.navigationItem.rightBarButtonItem = sortButton
-        self.navigationItem.title = self.navigationBarTitle.localized
+        self.navigationItem.title = self.navigationBarTitle.localized()
     }
     
     
@@ -81,7 +81,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     }
     
     
-    func showArticlesData(articles: [Article])
+    func showArticlesData(articles: NSArray)
     {
         HUD.hide()
         self.articles = articles
@@ -107,7 +107,7 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
     {
         let articleCell = tableView.dequeueReusableCellWithIdentifier(ArticleTableViewCell.kArticlesCellIdentifier) as! ArticleTableViewCell
 
-        articleCell.setupWithArticle(self.articles[indexPath.section])
+        articleCell.setupWithArticle(self.articles[indexPath.section] as! NSDictionary)
 
         return articleCell
     }
@@ -129,6 +129,6 @@ class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableV
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.presenter.showDetailsForArticle(self.articles[indexPath.section])
+        self.presenter.showDetailsForArticle(self.articles[indexPath.section] as! NSDictionary)
     }
 }

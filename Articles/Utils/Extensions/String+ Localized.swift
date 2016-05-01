@@ -11,7 +11,23 @@ import UIKit
 
 extension String
 {
-    var localized: String {
+    func localized() -> String
+    {
         return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+    }
+
+
+    func convertToDictionary() -> [String:AnyObject]?
+    {
+        if let data = self.dataUsingEncoding(NSUTF8StringEncoding) {
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [String:AnyObject]
+                return json
+            } catch {
+                print("Something went wrong")
+            }
+        }
+
+        return nil
     }
 }
