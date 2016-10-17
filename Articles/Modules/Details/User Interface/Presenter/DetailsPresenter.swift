@@ -5,20 +5,17 @@
 
 import Foundation
 
-
-class DetailsPresenter : DetailsModuleInterface
-{
+class DetailsPresenter : DetailsModuleInterface {
+    
     // Instance Variables
 
     weak var view: DetailsViewInterface!
     var wireframe: DetailsWireframe!
-    var article: NSDictionary!
-
+    var article: [String: Any]!
 
     // MARK: DetailsModuleInterface
 
-    func updateView()
-    {
-        self.view.showArticleDetails(self.article)
+    func updateView() {
+        view.showArticleDetails(article)
     }
 }

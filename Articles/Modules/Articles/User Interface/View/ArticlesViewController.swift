@@ -6,129 +6,102 @@
 import UIKit
 import PKHUD
 
-
-class ArticlesViewController : UIViewController, ArticlesViewInterface, UITableViewDataSource, UITableViewDelegate
-{
+class ArticlesViewController: UIViewController, ArticlesViewInterface {
+    
     // MARK: Constants
     
     let navigationBarTitle = "NAVIGATION_BAR_TITLE"
     let buttonSortTitle = "BUTTON_SORT_TITLE"
     
-    
     // MARK: Outlets
     
     @IBOutlet weak var articlesTableView: UITableView!
     
-    
     // MARK: Instance Variables
     
     var presenter: ArticlesModuleInterface!
-    var articles: NSArray!
-
+    var articles: [[String: Any]]!
 
     // MARK: Life Cycle
 
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
-        self.presenter.updateView()
-        HUD.show(.Progress)
+        setupView()
+        presenter.updateView()
+        HUD.show(.progress)
     }
-    
     
     // MARK: Private
     
-    private func setupView()
-    {
-        self.setupNavigationBar()
-        self.setupTableView()
+    private func setupView() {
+        setupNavigationBar()
+        setupTableView()
     }
     
-    
-    private func setupNavigationBar()
-    {
-        let sortButton = UIBarButtonItem(title: self.buttonSortTitle.localized(),
-                                         style: .Plain,
+    private func setupNavigationBar() {
+        let sortButton = UIBarButtonItem(title: buttonSortTitle.localized(),
+                                         style: .plain,
                                          target: self,
-                                         action: #selector(ArticlesViewController.onSortButtonClicked(_:)))
-        
-        self.navigationItem.rightBarButtonItem = sortButton
-        self.navigationItem.title = self.navigationBarTitle.localized()
+                                         action: #selector(ArticlesViewController.onSortButtonClicked))
+        navigationItem.rightBarButtonItem = sortButton
+        navigationItem.title = navigationBarTitle.localized()
     }
     
     
-    private func setupTableView()
-    {
-        self.articlesTableView.dataSource = self
-        self.articlesTableView.delegate = self
-        self.articlesTableView.rowHeight = UITableViewAutomaticDimension
-        self.articlesTableView.estimatedRowHeight = 230.0
+    private func setupTableView() {
+        articlesTableView.dataSource = self
+        articlesTableView.delegate = self
+        articlesTableView.rowHeight = UITableViewAutomaticDimension
+        articlesTableView.estimatedRowHeight = 230.0
     }
     
-    
-    @objc private func onSortButtonClicked(sender: UIBarButtonItem)
-    {
-        self.presenter.sortArticles()
+    @objc private func onSortButtonClicked(_ sender: Any?) {
+        presenter.sortArticles()
     }
     
     
     // MARK: ArticlesViewInterface
     
-    func showNoContentScreen()
-    {
+    func showNoContentScreen() {
         // Show custom empty screen.
     }
     
-    
-    func showArticlesData(articles: NSArray)
-    {
+    func showArticlesData(_ articles: [[String: Any]]) {
         HUD.hide()
         self.articles = articles
-        self.articlesTableView.reloadData()
+        articlesTableView.reloadData()
     }
+}
 
+extension ArticlesViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: UITableView DataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
-        return self.articles != nil ? self.articles.count : 0
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return articles != nil ? articles.count : 0
     }
     
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let articleCell = tableView.dequeueReusableCellWithIdentifier(ArticleTableViewCell.kArticlesCellIdentifier) as! ArticleTableViewCell
-
-        articleCell.setupWithArticle(self.articles[indexPath.section] as! NSDictionary)
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let articleCell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.kArticlesCellIdentifier) as! ArticleTableViewCell
+        articleCell.setupWithArticle(articles[indexPath.section])
         return articleCell
     }
     
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
-    {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
     }
     
-    
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
-    {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-
-
+    
     // MARK: UITableView Delegate
-
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        self.presenter.showDetailsForArticle(self.articles[indexPath.section] as! NSDictionary)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.showDetails(forArticle: articles[indexPath.section])
     }
 }

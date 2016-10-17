@@ -5,9 +5,8 @@
 
 import UIKit
 
-
-class ArticlesWireframe : NSObject, ArticlesWireframeInput
-{
+class ArticlesWireframe: ArticlesWireframeInput {
+    
     // MARK: Constants
     
     let alertSortByTitle = "ALERT_SORT_BY_TITLE"
@@ -19,7 +18,6 @@ class ArticlesWireframe : NSObject, ArticlesWireframeInput
     let storyboardName = "ArticlesStoryboard"
     let articlesViewControllerIdentifier = "ArticlesViewController"
     
-    
     // MARK: Instance Variables
 
     weak var articlesViewController: ArticlesViewController!
@@ -27,84 +25,61 @@ class ArticlesWireframe : NSObject, ArticlesWireframeInput
     var rootWireframe: RootWireframe!
     var detailsWireframe: DetailsWireframe!
     
-    
     // MARK: Public
     
-    override init()
-    {
-        super.init()
-        
+    init() {
         let articlesInteractor = ArticlesInteractor()
-        
-        self.articlesPresenter = ArticlesPresenter()
-        self.articlesPresenter.interactor = articlesInteractor
-        self.articlesPresenter.wireframe = self
-        
-        articlesInteractor.output = self.articlesPresenter
+        articlesPresenter = ArticlesPresenter()
+        articlesPresenter.interactor = articlesInteractor
+        articlesPresenter.wireframe = self
+        articlesInteractor.output = articlesPresenter
     }
     
-    
-    func presentArticlesInterfaceFromWindow(window: UIWindow)
-    {
-        self.articlesViewController = self.articlesViewControllerFromStoryboard()
-        self.articlesViewController.presenter = self.articlesPresenter
-        
-        self.articlesPresenter.view = self.articlesViewController
-        
-        self.rootWireframe.showRootViewControllerInWindow(self.articlesViewController, window: window)
+    func presentArticlesInterfaceFromWindow(_ window: UIWindow) {
+        articlesViewController = articlesViewControllerFromStoryboard()
+        articlesViewController.presenter = articlesPresenter
+        articlesPresenter.view = articlesViewController
+        rootWireframe.showRootViewController(articlesViewController, inWindow: window)
     }
-
-
+    
     // MARK: ArticlesWireframeInput
 
-    func presentArticlesSortOptions()
-    {
-        let alert = UIAlertController(title: self.alertSortByTitle.localized(), message: nil, preferredStyle: .ActionSheet)
-        
+    func presentArticlesSortOptions() {
+        let alert = UIAlertController(title: alertSortByTitle.localized(), message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: self.dateString.localized(),
-            style: .Default,
-            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Date) }))
-
-        alert.addAction(UIAlertAction(title: self.titleString.localized(),
-            style: .Default,
-            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Title) }))
-        
-        alert.addAction(UIAlertAction(title: self.authorString.localized(),
-            style: .Default,
-            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Author) }))
-        
-        alert.addAction(UIAlertAction(title: self.webSiteString.localized(),
-            style: .Default,
-            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(.Website) }))
-        
-        alert.addAction(UIAlertAction(title: self.cancelString.localized(),
-                style: .Cancel,
+            style: .default,
+            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(sortBy: .date) }))
+        alert.addAction(UIAlertAction(title: titleString.localized(),
+            style: .default,
+            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(sortBy: .title) }))
+        alert.addAction(UIAlertAction(title: authorString.localized(),
+            style: .default,
+            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(sortBy: .author) }))
+        alert.addAction(UIAlertAction(title: webSiteString.localized(),
+            style: .default,
+            handler: { (alert: UIAlertAction!) in self.articlesPresenter.sortArticlesList(sortBy: .website) }))
+        alert.addAction(UIAlertAction(title: cancelString.localized(),
+                style: .cancel,
                 handler: nil))
-        
-        self.articlesViewController.presentViewController(alert, animated: true, completion: nil)
+        articlesViewController.present(alert, animated: true, completion: nil)
     }
 
-
-    func presentDetailsInterfaceForArticle(article: NSDictionary)
-    {
-        self.detailsWireframe = DetailsWireframe()
-        self.sendArticleToDetailsPresenter(self.detailsWireframe.detailsPresenter, article: article)
-        self.detailsWireframe.presentArticleDetailsInterfaceFromViewController(self.articlesViewController)
+    func presentDetailsInterfaceForArticle(article: [String: Any]) {
+        detailsWireframe = DetailsWireframe()
+        sendArticleToDetailsPresenter(detailsWireframe.detailsPresenter, article: article)
+        detailsWireframe.presentArticleDetailsInterfaceFromViewController(articlesViewController)
     }
     
     
     // MARK: Private
 
-    private func sendArticleToDetailsPresenter(detailsPresenter: DetailsPresenter, article: NSDictionary)
-    {
+    private func sendArticleToDetailsPresenter(_ detailsPresenter: DetailsPresenter, article: [String: Any]) {
         detailsPresenter.article = article
     }
-
-
-    private func articlesViewControllerFromStoryboard() -> ArticlesViewController
-    {
-        let storyboard = UIStoryboard(name: self.storyboardName, bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(self.articlesViewControllerIdentifier) as! ArticlesViewController
+    
+    private func articlesViewControllerFromStoryboard() -> ArticlesViewController {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: articlesViewControllerIdentifier) as! ArticlesViewController
         return viewController
     }
 }

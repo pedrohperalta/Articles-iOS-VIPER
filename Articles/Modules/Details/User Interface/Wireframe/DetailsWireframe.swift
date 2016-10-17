@@ -5,9 +5,8 @@
 
 import UIKit
 
-
-class DetailsWireframe : NSObject
-{
+class DetailsWireframe {
+    
     // MARK: Constants
 
     let storyboardName = "DetailsStoryboard"
@@ -18,34 +17,25 @@ class DetailsWireframe : NSObject
     weak var detailsViewController: DetailsViewController!
     var detailsPresenter: DetailsPresenter!
 
-
     // MARK: Public
     
-    override init()
-    {
-        super.init()
-        self.detailsPresenter = DetailsPresenter()
+    init() {
+        detailsPresenter = DetailsPresenter()
     }
-    
 
-    func presentArticleDetailsInterfaceFromViewController(controller: UIViewController)
-    {
-        self.detailsViewController = self.detailsViewControllerFromStoryboard()
-        self.detailsViewController.presenter = self.detailsPresenter
-        
-        self.detailsPresenter.view = detailsViewController
-        self.detailsPresenter.wireframe = self
-        
+    func presentArticleDetailsInterfaceFromViewController(_ controller: UIViewController) {
+        detailsViewController = detailsViewControllerFromStoryboard()
+        detailsViewController.presenter = detailsPresenter
+        detailsPresenter.view = detailsViewController
+        detailsPresenter.wireframe = self
         controller.navigationController!.pushViewController(detailsViewController, animated: true)
     }
 
-
     // MARK: Private
 
-    private func detailsViewControllerFromStoryboard() -> DetailsViewController
-    {
-        let storyboard = UIStoryboard(name: self.storyboardName, bundle: nil)
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(self.detailsViewControllerIdentifier) as! DetailsViewController
+    private func detailsViewControllerFromStoryboard() -> DetailsViewController {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: detailsViewControllerIdentifier) as! DetailsViewController
         return viewController
     }
 }

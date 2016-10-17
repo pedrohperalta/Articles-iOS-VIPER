@@ -1,24 +1,33 @@
 PODS:
-  - Alamofire (3.3.0)
-  - AlamofireObjectMapper (2.1.2):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
-  - Kingfisher (2.2.0)
-  - ObjectMapper (1.2.0)
-  - PKHUD (3.1.0)
+  - Alamofire (4.0.1)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - Kingfisher (3.1.3)
+  - ObjectMapper (2.1.0)
+  - PKHUD (3.2.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
-  - AlamofireObjectMapper (~> 2.1)
-  - Kingfisher (~> 2.1)
-  - ObjectMapper (~> 1.1)
-  - PKHUD
+  - AlamofireObjectMapper (~> 4.0)
+  - Kingfisher (~> 3.0)
+  - PKHUD (from `https://github.com/toyship/PKHUD.git`)
+
+EXTERNAL SOURCES:
+  PKHUD:
+    :git: https://github.com/toyship/PKHUD.git
+
+CHECKOUT OPTIONS:
+  PKHUD:
+    :commit: 28fb970b41d63134e962f9da766b96670c0f55f0
+    :git: https://github.com/toyship/PKHUD.git
 
 SPEC CHECKSUMS:
-  Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
-  AlamofireObjectMapper: 82391c31f23e37bdb2660da174bcf81b202da39d
-  Kingfisher: 350869ed88d6451803b390475d977abdd9f0a357
-  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
-  PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  Kingfisher: 007f5851c18c81e7cc106c9cbac1bafea1cce5dc
+  ObjectMapper: e5e0f8aef8590fc2ddcde7f27eddb255863ee6e9
+  PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f6e9d0b9b780ef66ff9c3245d36a338fe40540ba
+
+COCOAPODS: 1.0.1

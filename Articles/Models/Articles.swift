@@ -9,22 +9,21 @@
 import Foundation
 import ObjectMapper
 
-
-class Article : Mappable
-{
+struct Article {
     var date: String?
     var title: String?
     var website: String?
     var authors: String?
     var content: String?
     var imageUrl: String?
+}
 
-
-    required init?(_ map: Map) {
+extension Article: Mappable {
+    
+    init?(map: Map) {
     }
-
-
-    func mapping(map: Map) {
+    
+    mutating func mapping(map: Map) {
         title       <- map["title"]
         website     <- map["website"]
         authors     <- map["authors"]

@@ -1,13 +1,18 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'Articles' do
+  pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'Kingfisher', '~> 3.0'
+  pod 'PKHUD', :git => 'https://github.com/toyship/PKHUD.git'
+end
 
-  pod 'Alamofire', '~> 3.0'
-  pod 'ObjectMapper', '~> 1.1'
-  pod 'AlamofireObjectMapper', '~> 2.1'
-  pod 'Kingfisher', '~> 2.1'
-  pod 'PKHUD'
-
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
 end

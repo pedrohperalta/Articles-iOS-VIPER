@@ -5,9 +5,7 @@
 
 import Foundation
 
-
-protocol ArticlesWireframeInput
-{
+protocol ArticlesWireframeInput {
     func presentArticlesSortOptions()
-    func presentDetailsInterfaceForArticle(article: NSDictionary)
+    func presentDetailsInterfaceForArticle(article: [String: Any])
 }

@@ -6,14 +6,12 @@
 import UIKit
 import Kingfisher
 
-
-class ArticleTableViewCell : UITableViewCell
-{
+class ArticleTableViewCell: UITableViewCell {
+    
     // MARK: Constants
 
     static let kArticlesCellIdentifier = "ArticlesCellIdentifier"
     let kImagePlaceHolder = "image-placeholder"
-    
     
     // MARK: Outlets
     
@@ -21,26 +19,21 @@ class ArticleTableViewCell : UITableViewCell
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorsLabel: UILabel!
     
-    
     // MARK: Life Cycle
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-
     // MARK: Public
 
-    func setupWithArticle(article: NSDictionary)
-    {
-        self.authorsLabel?.text = article["authors"] as! String
-        self.titleLabel?.text = article["title"] as! String
-
-        if (article["image"] != nil) {
-            self.articleImageView.kf_setImageWithURL(NSURL(string: article["image"] as! String)!, placeholderImage:nil)
+    func setupWithArticle(_ article: [String: Any]) {
+        authorsLabel?.text = article["authors"] as? String
+        titleLabel?.text = article["title"] as? String
+        if let image = article["image"] as? String {
+            articleImageView.kf.setImage(with: URL(string: image)!, placeholder: nil)
         } else {
-            self.articleImageView.image = UIImage(named: self.kImagePlaceHolder)
+            articleImageView.image = UIImage(named: kImagePlaceHolder)
         }
     }
 }

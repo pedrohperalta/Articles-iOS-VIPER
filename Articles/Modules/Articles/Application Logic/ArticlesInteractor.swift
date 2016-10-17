@@ -8,35 +8,25 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-
-class ArticlesInteractor : ArticlesInteractorInput
-{
+class ArticlesInteractor: ArticlesInteractorInput {
+    
     // MARK: Constants
     
     let url = "https://www.ckl.io/challenge"
-    
     
     // MARK: Instance Variables
     
     weak var output: ArticlesInteractorOutput!
 
-
     // MARK: ArticlesInteractorInput
     
-    func fetchArticles()
-    {
-        Alamofire.request(.GET, url).responseArray { (response: Response<[Article], NSError>) in
-
-            if let articlesArray = response.result.value {
-                let articlesDictionaryArray: NSMutableArray = []
-
-                for article in articlesArray {
-                    let JSONString = Mapper().toJSONString(article, prettyPrint: true)
-                    articlesDictionaryArray.addObject(JSONString!.convertToDictionary()!)
-                }
-
-                self.output.articlesFetched(articlesDictionaryArray)
-            }
-        }
+    func fetchArticles() {
+        Alamofire.request(url, method: .get).responseArray(completionHandler: { (response: DataResponse<[Article]>) in
+            guard let articles = response.result.value else { return }
+            let dictionaries = articles.map({ (article) -> [String: Any] in
+                return article.toJSON()
+            })
+            self.output.articlesFetched(dictionaries)
+        })
     }
 }

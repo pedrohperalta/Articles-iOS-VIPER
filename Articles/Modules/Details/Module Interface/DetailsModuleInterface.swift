@@ -5,8 +5,6 @@
 
 import Foundation
 
-
-protocol DetailsModuleInterface: class
-{
+protocol DetailsModuleInterface: class {
     func updateView()
 }
