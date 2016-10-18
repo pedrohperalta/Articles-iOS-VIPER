@@ -39,7 +39,7 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
     
     
     func showDetails(forArticle article: [String: Any]) {
-        wireframe.presentDetailsInterfaceForArticle(article: article)
+        wireframe.presentDetailsInterfaceForArticle(article)
     }
     
     

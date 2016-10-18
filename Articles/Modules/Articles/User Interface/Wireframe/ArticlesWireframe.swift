@@ -64,7 +64,7 @@ class ArticlesWireframe: ArticlesWireframeInput {
         articlesViewController.present(alert, animated: true, completion: nil)
     }
 
-    func presentDetailsInterfaceForArticle(article: [String: Any]) {
+    func presentDetailsInterfaceForArticle(_ article: [String: Any]) {
         detailsWireframe = DetailsWireframe()
         sendArticleToDetailsPresenter(detailsWireframe.detailsPresenter, article: article)
         detailsWireframe.presentArticleDetailsInterfaceFromViewController(articlesViewController)
