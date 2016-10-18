@@ -70,7 +70,6 @@ class ArticlesWireframe: ArticlesWireframeInput {
         detailsWireframe.presentArticleDetailsInterfaceFromViewController(articlesViewController)
     }
     
-    
     // MARK: Private
 
     private func sendArticleToDetailsPresenter(_ detailsPresenter: DetailsPresenter, article: [String: Any]) {

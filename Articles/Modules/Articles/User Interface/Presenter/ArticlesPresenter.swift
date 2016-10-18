@@ -15,7 +15,6 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
     var wireframe: ArticlesWireframe!
     var articles: [[String: Any]]!
     
-    
     // MARK: Enums
     
     enum ArticlesSortBy {
@@ -24,7 +23,6 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
         case author
         case website
     }
-    
     
     // MARK: ArticlesModuleInterface
     
@@ -42,7 +40,6 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
         wireframe.presentDetailsInterfaceForArticle(article)
     }
     
-    
     // MARK: ArticlesInteractorOutput
     
     func articlesFetched(_ articles: [[String: Any]]) {
@@ -53,7 +50,6 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
             view.showNoContentScreen()
         }
     }
-    
     
     // MARK: Public
 
