@@ -5,11 +5,9 @@
 
 import UIKit
 
-
-class RootWireframe : NSObject
-{
-    func showRootViewControllerInWindow(viewController: UIViewController, window: UIWindow)
-    {
+class RootWireframe {
+    
+    func showRootViewController(_ viewController: UIViewController, inWindow window: UIWindow) {
         let navigationController = window.rootViewController as! UINavigationController
         navigationController.viewControllers = [viewController]
     }

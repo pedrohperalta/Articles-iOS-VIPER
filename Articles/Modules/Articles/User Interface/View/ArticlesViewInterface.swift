@@ -5,9 +5,7 @@
 
 import Foundation
 
-
-protocol ArticlesViewInterface: class
-{
+protocol ArticlesViewInterface: class {
     func showNoContentScreen()
-    func showArticlesData(articles: NSArray)
+    func showArticlesData(_ articles: [[String: Any]])
 }

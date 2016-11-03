@@ -5,10 +5,8 @@
 
 import Foundation
 
-
-protocol ArticlesModuleInterface: class
-{
+protocol ArticlesModuleInterface: class {
     func updateView()
     func sortArticles()
-    func showDetailsForArticle(article: NSDictionary)
+    func showDetails(forArticle article: [String: Any])
 }

@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-protocol ArticlesInteractorInput : class
-{
+protocol ArticlesInteractorInput: class {
     func fetchArticles()
 }

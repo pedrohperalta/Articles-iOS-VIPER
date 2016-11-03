@@ -5,27 +5,21 @@
 
 import UIKit
 
-
-class AppDependencies : NSObject
-{
+class AppDependencies {
+    
     // MARK: Instance Variables
     
-    var articlesWireframe: ArticlesWireframe!
-
+    var articlesWireframe: ArticlesWireframe
 
     // MARK: Public
     
-    override init()
-    {
+    init() {
         let rootWireframe = RootWireframe()
-        
-        self.articlesWireframe = ArticlesWireframe()
-        self.articlesWireframe.rootWireframe = rootWireframe
+        articlesWireframe = ArticlesWireframe()
+        articlesWireframe.rootWireframe = rootWireframe
     }
-
-
-    func installRootViewControllerIntoWindow(window: UIWindow)
-    {
-        self.articlesWireframe.presentArticlesInterfaceFromWindow(window)
+    
+    func installRootViewControllerIntoWindow(_ window: UIWindow) {
+        articlesWireframe.presentArticlesInterfaceFromWindow(window)
     }
 }

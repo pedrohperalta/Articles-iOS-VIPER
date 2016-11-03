@@ -8,18 +8,17 @@
 
 import UIKit
 
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
-{
+class AppDelegate: UIResponder {
+    
     var window: UIWindow?
+}
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
-    {
+extension AppDelegate: UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         let appDependencies = AppDependencies()
-        appDependencies.installRootViewControllerIntoWindow(self.window!)
-        
+        appDependencies.installRootViewControllerIntoWindow(window!)
         return true
     }
 }

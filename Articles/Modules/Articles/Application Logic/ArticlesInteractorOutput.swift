@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-protocol ArticlesInteractorOutput : class
-{
-    func articlesFetched(articles: NSArray)
+protocol ArticlesInteractorOutput: class {
+    func articlesFetched(_ articles: [[String: Any]])
 }

@@ -5,8 +5,6 @@
 
 import Foundation
 
-
-protocol DetailsViewInterface: class
-{
-    func showArticleDetails(article: NSDictionary)
+protocol DetailsViewInterface: class {
+    func showArticleDetails(_ article: [String: Any])
 }
