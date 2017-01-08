@@ -8,5 +8,5 @@ import Foundation
 protocol ArticlesModuleInterface: class {
     func updateView()
     func sortArticles()
-    func showDetails(forArticle article: [String: Any])
+    func showDetails(forArticle article: Article)
 }

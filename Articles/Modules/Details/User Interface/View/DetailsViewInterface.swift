@@ -6,5 +6,5 @@
 import Foundation
 
 protocol DetailsViewInterface: class {
-    func showArticleDetails(_ article: [String: Any])
+    func showArticleDetails(_ article: Article)
 }

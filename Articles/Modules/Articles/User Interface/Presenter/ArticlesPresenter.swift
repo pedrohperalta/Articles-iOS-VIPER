@@ -13,7 +13,7 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
     
     var interactor: ArticlesInteractorInput!
     var wireframe: ArticlesWireframe!
-    var articles: [[String: Any]]!
+    var articles: [Article]!
     
     // MARK: Enums
     
@@ -36,13 +36,13 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
     }
     
     
-    func showDetails(forArticle article: [String: Any]) {
+    func showDetails(forArticle article: Article) {
         wireframe.presentDetailsInterfaceForArticle(article)
     }
     
     // MARK: ArticlesInteractorOutput
     
-    func articlesFetched(_ articles: [[String: Any]]) {
+    func articlesFetched(_ articles: [Article]) {
         if articles.count > 0 {
             self.articles = articles
             view.showArticlesData(articles)
@@ -56,16 +56,16 @@ class ArticlesPresenter: ArticlesModuleInterface, ArticlesInteractorOutput {
     func sortArticlesList(sortBy: ArticlesSortBy) {
         switch sortBy {
         case .date:
-            let items = articles.sorted(by: { ($0["date"] as! String) < ($1["date"] as! String) })
+            let items = articles.sorted(by: { ($0.date!) < ($1.date!) })
             view.showArticlesData(items)
         case .title:
-            let items = articles.sorted(by: { ($0["title"] as! String) < ($1["title"] as! String) })
+            let items = articles.sorted(by: { ($0.title!) < ($1.title!) })
             view.showArticlesData(items)
         case .author:
-            let items = articles.sorted(by: { ($0["authors"] as! String) < ($1["authors"] as! String) })
+            let items = articles.sorted(by: { ($0.authors!) < ($1.authors!) })
             view.showArticlesData(items)
         case .website:
-            let items = articles.sorted(by: { ($0["website"] as! String) < ($1["website"] as! String) })
+            let items = articles.sorted(by: { ($0.website!) < ($1.website!) })
             view.showArticlesData(items)
         }
     }
