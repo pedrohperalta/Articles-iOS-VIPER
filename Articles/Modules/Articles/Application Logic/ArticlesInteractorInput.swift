@@ -9,5 +9,6 @@
 import Foundation
 
 protocol ArticlesInteractorInput: class {
+    weak var output: ArticlesInteractorOutput! {get set}
     func fetchArticles()
 }

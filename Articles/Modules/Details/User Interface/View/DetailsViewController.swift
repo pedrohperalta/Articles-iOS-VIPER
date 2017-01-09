@@ -37,15 +37,15 @@ class DetailsViewController : UIViewController, DetailsViewInterface {
 
     // MARK: DetailsViewInterface
 
-    func showArticleDetails(_ article: [String: Any]) {
-        if let image = article["image"] as? String {
+    func showArticleDetails(_ article: Article) {
+        if let image = article.imageUrl {
             articleImageView.kf.setImage(with: URL(string: image)!, placeholder: nil)
         } else {
             articleImageView.image = UIImage(named: kImagePlaceHolder)
         }
-        authorsLabel.text = article["authors"] as? String
-        dateLabel.text = article["date"] as? String
-        titleLabel.text = article["title"] as? String
-        contentLabel.text = article["content"] as? String
+        authorsLabel.text = article.authors
+        dateLabel.text = article.date
+        titleLabel.text = article.title
+        contentLabel.text = article.content
     }
 }

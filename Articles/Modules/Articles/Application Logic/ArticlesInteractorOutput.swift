@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ArticlesInteractorOutput: class {
-    func articlesFetched(_ articles: [[String: Any]])
+    func articlesFetched(_ articles: [Article])
 }
