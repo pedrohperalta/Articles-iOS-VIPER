@@ -6,6 +6,8 @@ target 'Articles' do
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'Kingfisher', '~> 3.0'
   pod 'PKHUD', :git => 'https://github.com/toyship/PKHUD.git'
+  pod 'R.swift'
+  pod 'RxSwift', '3.0'
 end
 
 post_install do |installer|

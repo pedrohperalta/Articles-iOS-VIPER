@@ -3,19 +3,19 @@
 //  Challenge
 //
 //  Created by Pedro Henrique Prates Peralta on 3/16/16.
-//  Copyright © 2016 Cheesecake Labs. All rights reserved.
+//  Copyright © 2017 Pedro Peralta. All rights reserved.
 //
 
 import Foundation
 import ObjectMapper
 
 struct Article {
-    var date: String?
-    var title: String?
-    var website: String?
-    var authors: String?
-    var content: String?
-    var imageUrl: String?
+    var date = ""
+    var title = ""
+    var website = ""
+    var authors = ""
+    var content = ""
+    var imageUrl = ""
 }
 
 extension Article: Mappable {
