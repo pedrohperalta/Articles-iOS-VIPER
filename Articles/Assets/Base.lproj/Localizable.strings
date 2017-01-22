@@ -1,8 +1,0 @@
-NAVIGATION_BAR_TITLE    = "Feed";
-BUTTON_SORT_TITLE       = "Sort";
-ALERT_SORT_BY_TITLE     = "Sort by";
-ALERT_DATE_OPTION       = "Date";
-ALERT_TITLE_OPTION      = "Title";
-ALERT_AUTHOR_OPTION     = "Author";
-ALERT_WEBSITE_OPTION    = "Website";
-ALERT_CANCEL_OPTION     = "Cancel";
