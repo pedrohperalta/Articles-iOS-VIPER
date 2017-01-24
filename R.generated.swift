@@ -251,17 +251,10 @@ struct _R: Rswift.Validatable {
       try detailsStoryboard.validate()
     }
     
-    struct articlesStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
-      
-      let articlesNavigationViewController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "articlesNavigationViewController")
+    struct articlesStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
       let articlesViewController = StoryboardViewControllerResource<ArticlesViewController>(identifier: "ArticlesViewController")
       let bundle = R.hostingBundle
       let name = "ArticlesStoryboard"
-      
-      func articlesNavigationViewController(_: Void = ()) -> UIKit.UINavigationController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: articlesNavigationViewController)
-      }
       
       func articlesViewController(_: Void = ()) -> ArticlesViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: articlesViewController)
@@ -269,7 +262,6 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if _R.storyboard.articlesStoryboard().articlesViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'articlesViewController' could not be loaded from storyboard 'ArticlesStoryboard' as 'ArticlesViewController'.") }
-        if _R.storyboard.articlesStoryboard().articlesNavigationViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'articlesNavigationViewController' could not be loaded from storyboard 'ArticlesStoryboard' as 'UIKit.UINavigationController'.") }
       }
       
       fileprivate init() {}
